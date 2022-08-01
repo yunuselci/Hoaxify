@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull
+    @NotNull(message="{hoxify.validation.username.NotNull.message}")
     @Size(min = 3, max = 255)
     @UniqueUsername
     private String username;
@@ -23,7 +23,7 @@ public class User {
     private String displayName;
     @NotNull
     @Size(min = 8, max = 255)
-    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
+    @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$", message = "{hoxify.validation.password.Pattern.message}")
     private String password;
 
 }
