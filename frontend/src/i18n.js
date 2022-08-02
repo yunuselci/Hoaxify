@@ -7,14 +7,18 @@ i18n.use(initReactI18next).init({
             translations : {
                 'Sign Up' : 'Sign Up',
                 'Password mismatch' : 'Password mismatch',
-                'Username' : 'Username'
+                'Username' : 'Username',
+                'Password' : 'Password',
+                'Login' : 'Login'
             }   
         },
         tr : {
             translations : {
                 'Sign Up' : 'Kayıt Ol',
                 'Password mismatch' : 'Şifreler Aynı Değil',
-                'Username' : 'Kullanıc adı'
+                'Username' : 'Kullanıc adı',
+                'Password' : 'Şifre',
+                'Login' : 'Giriş'
             }
         }
     },

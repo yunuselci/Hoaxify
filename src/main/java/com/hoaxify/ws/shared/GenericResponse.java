@@ -1,4 +1,4 @@
-package com.hoaxify.ws.user;
+package com.hoaxify.ws.shared;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
