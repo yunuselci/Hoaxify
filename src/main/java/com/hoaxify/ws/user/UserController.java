@@ -1,17 +1,14 @@
 package com.hoaxify.ws.user;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
+import com.hoaxify.ws.user.vm.UserVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.hoaxify.ws.shared.GenericResponse;
-import com.hoaxify.ws.shared.Views;
 
 @RestController
 public class UserController {
@@ -26,8 +23,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/api/1.0/users")
-	@JsonView(Views.Base.class)
-	Page<User> getUsers(Pageable pageable){
-		return userService.getUsers(pageable);
+	Page<UserVM> getUsers(Pageable pageable){
+		return userService.getUsers(pageable).map(UserVM::new);
 	}
 }
