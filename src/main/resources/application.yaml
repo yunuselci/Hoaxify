@@ -12,3 +12,6 @@ spring:
         persistence:
           validation:
             mode: none
+logging:
+  level:
+    org.springframework: DEBUG
