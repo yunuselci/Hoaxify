@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.validation.FieldError;
@@ -21,7 +20,7 @@ public class ErrorHandler implements ErrorController {
 	
 	@RequestMapping("/error")
 	ApiError handleError(WebRequest webRequest) {
-		Map<String, Object> attributes = this.errorAttributes.getErrorAttributes(webRequest, ErrorAttributeOptions.of(ErrorAttributeOptions.Include.MESSAGE, ErrorAttributeOptions.Include.BINDING_ERRORS));
+		Map<String, Object> attributes = this.errorAttributes.getErrorAttributes(webRequest, true);
 		String message = (String)attributes.get("message");
 		String path = (String) attributes.get("path");
 		int status = (Integer) attributes.get("status");
@@ -37,8 +36,11 @@ public class ErrorHandler implements ErrorController {
 		}
 		return error; 
 	}
+	
 
-
-
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 
 }
