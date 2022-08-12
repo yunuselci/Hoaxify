@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Input from '../components/Input';
+import Input from '../components/input';
 import { useTranslation } from 'react-i18next';
 import ButtonWithProgress from '../components/ButtonWithProgress';
 import { useApiProgress } from '../shared/ApiProgress';

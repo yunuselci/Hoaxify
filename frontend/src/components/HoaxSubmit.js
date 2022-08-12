@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { postHoax, postHoaxAttachment } from '../api/apiCalls';
 import { useApiProgress } from '../shared/ApiProgress';
 import ButtonWithProgress from './ButtonWithProgress';
-import Input from './Input';
+import Input from './input';
 import AutoUploadImage from './AutoUploadImage';
 
 const HoaxSubmit = () => {
