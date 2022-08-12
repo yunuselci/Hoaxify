@@ -2,7 +2,7 @@ name: Hoaxify Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
