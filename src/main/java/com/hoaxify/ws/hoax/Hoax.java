@@ -1,22 +1,39 @@
 package com.hoaxify.ws.hoax;
 
-import lombok.Data;
-
-import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.hoaxify.ws.file.FileAttachment;
+import com.hoaxify.ws.user.User;
+
+import lombok.Data;
 
 @Data
 @Entity
 public class Hoax {
-    @Id
-    @GeneratedValue
-    private Long id;
+	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(length = 1000)
+	private String content;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timestamp;
 
-    @Size(min = 1, max = 1000)
-    @Column(length = 1000)
-    private String content;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date timestamp;
+	@ManyToOne
+	private User user;
+	
+	@OneToOne(mappedBy = "hoax", cascade = CascadeType.REMOVE)
+	private FileAttachment fileAttachment;
 }
