@@ -27,8 +27,8 @@ jobs:
 
     - name: copy react to spring static resources
       run: |
-        mkdir -p backend/src/main/resources/static/
-        cp -a frontend/build/. backend/src/main/resources/static/
+        mkdir -p backend/ws/src/main/resources/static
+        cp -a frontend/build/. backend/ws/src/main/resources/static/
         
     - name: Build spring
       run: mvn -B package --file pom.xml
